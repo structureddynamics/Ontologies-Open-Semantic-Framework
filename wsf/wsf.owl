@@ -278,6 +278,20 @@ This property is used by the Tracker web service endpoint.</rdfs:comment>
     
 
 
+    <!-- http://purl.org/ontology/wsf#ontologyModified -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/wsf#ontologyModified">
+        <rdfs:label xml:lang="en">ontology modified</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">States if an ontology has been modified since the last time it got saved on the file system of the OSF server instance.
+
+This is used by the structOntology conStruct module.</rdfs:comment>
+        <rdfs:domain rdf:resource="&void;Dataset"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://purl.org/ontology/wsf#previousState -->
 
     <owl:DatatypeProperty rdf:about="http://purl.org/ontology/wsf#previousState">
