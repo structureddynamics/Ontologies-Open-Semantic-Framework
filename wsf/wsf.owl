@@ -270,20 +270,6 @@
     
 
 
-    <!-- http://purl.org/ontology/wsf#previousRecordState -->
-
-    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/wsf#previousRecordState">
-        <rdfs:label xml:lang="en">action</rdfs:label>
-        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">The previous state of a record before the action performed by a user defined by a change state. The previous state is a ZIP compressed RDF+XML representation of the record *prior* the performance of the action.
-
-</rdfs:comment>
-        <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#ChangeState"/>
-        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://purl.org/ontology/wsf#previousState -->
 
     <owl:DatatypeProperty rdf:about="http://purl.org/ontology/wsf#previousState">
