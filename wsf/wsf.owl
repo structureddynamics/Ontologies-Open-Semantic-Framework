@@ -241,6 +241,24 @@ This property is used by the Tracker web service endpoint.</rdfs:comment>
     
 
 
+    <!-- http://purl.org/ontology/wsf#crudAction -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/wsf#crudAction">
+        <rdfs:label xml:lang="en">crud action</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">States the CRUD action that should be used to index a given record into structWSF. This property is used by the Datasets Syncing Framework to determine if the record feed to it should be created, deleted or updated.
+
+The value of this property can be one of:
+
+(1) create
+(2) update
+(3) delete
+
+This property is used by the Datasets Syncing Framework.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://purl.org/ontology/wsf#delete -->
 
     <owl:DatatypeProperty rdf:about="http://purl.org/ontology/wsf#delete">
