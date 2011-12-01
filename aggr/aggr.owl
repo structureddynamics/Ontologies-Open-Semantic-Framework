@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY void "http://rdfs.org/ns/void#" >
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY doap "http://usefulinc.com/ns/doap#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY aggregate "http://purl.org/ontology/aggregate#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ns "http://www.w3.org/2003/06/sw-vocab-status/ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.org/ontology/wsf#"
+     xml:base="http://purl.org/ontology/wsf"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:aggregate="http://purl.org/ontology/aggregate#"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:void="http://rdfs.org/ns/void#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:doap="http://usefulinc.com/ns/doap#">
+    <owl:Ontology rdf:about="http://purl.org/ontology/aggregate">
+        <owl:versionInfo rdf:datatype="&rdf;PlainLiteral">http://purl.org/ontology/aggregate/0.1/</owl:versionInfo>
+        <dc:title xml:lang="en">Aggregation Ontology</dc:title>
+        <dc:description xml:lang="en">The aggregation ontology is used by the Search structWSF web service endpoint to returns the counts of the filters criterias of a filtered search query.
+
+This ontology specifies Aggregation records that determine the number of things for a specific facet of the filtered search.</dc:description>
+        <dc:creator rdf:resource="http://purl.org/ontology/wsf#fgiasson"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&owl;versionInfo"/>
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;seeAlso"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;isDefinedBy"/>
+    <owl:AnnotationProperty rdf:about="&ns;term_status"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&dc;description"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ontology/aggregate#object -->
+
+    <owl:ObjectProperty rdf:about="&aggregate;object">
+        <rdfs:label xml:lang="en">object</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/aggregate#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Specifies what is the object of an aggregation record. 
+
+The object, is the target of the aggregation. This is the thing that we are counting with that aggregate. </rdfs:comment>
+        <rdfs:domain rdf:resource="&aggregate;Aggregate"/>
+        <rdfs:range rdf:resource="&owl;Thing"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/aggregate#property -->
+
+    <owl:ObjectProperty rdf:about="&aggregate;property">
+        <rdfs:label xml:lang="en">object</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/aggregate#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Specifies what is the property that we are counting with that aggregate
+
+The property is the kind of thing that we are counting in an aggregate.
+
+For example a property can be:
+
+(1) http://rdfs.org/ns/void#Dataset - When we are counting the number of records within a specific dataset for a given query.
+
+(2) http://www.w3.org/1999/02/22-rdf-syntax-ns#type - When we are counting the number of records of a certain type for a given query.
+
+etc.</rdfs:comment>
+        <rdfs:domain rdf:resource="&aggregate;Aggregate"/>
+        <rdfs:range rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="&owl;topObjectProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ontology/aggregate#count -->
+
+    <owl:DatatypeProperty rdf:about="&aggregate;count"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="&owl;topDataProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ontology/aggregate#Aggregate -->
+
+    <owl:Class rdf:about="&aggregate;Aggregate">
+        <rdfs:label xml:lang="en">Aggregate</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&aggregate;count"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&aggregate;property"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&aggregate;object"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/aggregate#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">An aggregate record count the number of things that belong to a specific facet of a filtered search query.
+
+This facet is defined by the &quot;property&quot;, the &quot;object&quot; and the &quot;count&quot; of an Aggregate.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ontology/wsf#fgiasson -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/ontology/wsf#fgiasson">
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://fgiasson.com/</rdfs:seeAlso>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+
