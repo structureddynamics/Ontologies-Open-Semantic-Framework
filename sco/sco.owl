@@ -1,0 +1,490 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY sco "http://purl.org/ontology/sco#" >
+    <!ENTITY doap "http://usefulinc.com/ns/doap#" >
+    <!ENTITY peg "http://purl.org/ontology/peg#" >
+    <!ENTITY bibo "http://purl.org/ontology/bibo/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY ontology "http://www.geonames.org/ontology#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ns "http://www.w3.org/2003/06/sw-vocab-status/ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.org/ontology/swt#"
+     xml:base="http://purl.org/ontology/swt"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:ontology="http://www.geonames.org/ontology#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:bibo="http://purl.org/ontology/bibo/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:peg="http://purl.org/ontology/peg#"
+     xmlns:doap="http://usefulinc.com/ns/doap#"
+     xmlns:sco="http://purl.org/ontology/sco#">
+    <owl:Ontology rdf:about="http://purl.org/ontology/sco">
+        <owl:versionInfo rdf:datatype="&rdf;PlainLiteral">http://purl.org/ontology/sco/0.1/</owl:versionInfo>
+        <dc:title xml:lang="en">Semantic Components Ontology</dc:title>
+        <rdfs:comment xml:lang="en">This ontology extends OWL ontologies to annotate classes and properties with related semantic component display tools.</rdfs:comment>
+        <dc:creator rdf:resource="&sco;fgiasson"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&owl;versionInfo"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;seeAlso"/>
+    <owl:AnnotationProperty rdf:about="&sco;comparableWith">
+        <rdfs:label xml:lang="en">comparable with</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Specify a &quot;comparableWith&quot; relation between two predicates. These comparable attributes have the same allowedValue(s), and the semantic of the predicates that are comparable is the same. Since the kind of value, and their semantic is the same, they are then considered comparable.
+
+This is normally used to plot values of different attributes describing a same record on some visualization component (for example, a linear chart).</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&rdfs;isDefinedBy"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ontology/sco#comparableWith -->
+
+    <owl:ObjectProperty rdf:about="&sco;comparableWith">
+        <rdfs:label xml:lang="en">comparable with</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Specify a &quot;comparableWith&quot; relation between two predicates. These comparable attributes have the same allowedValue(s), and the semantic of the predicates that are comparable is the same. Since the kind of value, and their semantic is the same, they are then considered comparable.
+
+This is normally used to plot values of different attributes describing a same record on some visualization component (for example, a linear chart).</rdfs:comment>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&owl;DatatypeProperty"/>
+                    <rdf:Description rdf:about="&owl;ObjectProperty"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&owl;DatatypeProperty"/>
+                    <rdf:Description rdf:about="&owl;ObjectProperty"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/sco#displayControl -->
+
+    <owl:ObjectProperty rdf:about="&sco;displayControl">
+        <rdfs:label xml:lang="en">display control</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Reference a control identifier that can be used to display value(s) of a given predicate.</rdfs:comment>
+        <rdfs:range rdf:resource="&sco;Component"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/sco#relationBrowserNodeType -->
+
+    <owl:ObjectProperty rdf:about="&sco;relationBrowserNodeType">
+        <rdfs:label xml:lang="en">relation browser node type</rdfs:label>
+        <rdfs:comment xml:lang="en">Reference to a relation browser node type used to skin a node according to its type. This should be a reference to a type URI defined in a relation browse nodes skins configuration file. If a record is defined with this property, the relation browser will try to find a node of that type to apply to it as a skin.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/sco#unitType -->
+
+    <owl:ObjectProperty rdf:about="&sco;unitType">
+        <rdfs:label xml:lang="en">unit type</rdfs:label>
+        <rdfs:comment xml:lang="en">URI reference to a unit type ontology. The sco:unitType property is used to determine the type of unit referenced by a property. For example, if a data property has xsd:float as range, then sco:unitType determine what kind of things this number refers to.
+
+The semantic components will make all the properties that share the same sco:unitType comparable (so, possibly displayable on the same semantic component, such as the sBarChart and the sLinearChart). </rdfs:comment>
+        <rdfs:range rdf:resource="&owl;Thing"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ontology/sco#geoHash -->
+
+    <owl:DatatypeProperty rdf:about="&sco;geoHash"/>
+    
+
+
+    <!-- http://purl.org/ontology/sco#gisMap -->
+
+    <owl:DatatypeProperty rdf:about="&sco;gisMap">
+        <rdfs:label xml:lang="en">gis map</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Reference a map binary file created created from a ShapeFile map file and ClearMapsBuilder. The referenced map file is a serialized ActionalScript object.
+
+The sco:gisMap defines the first layout that is related to a given resource. Normally, this resource is part of the map related by the gisMap predicate. Read more about maps in the sMap documentation page.
+
+There is only one gisMap relationship per resource, other relationships should be made with the sco:relatedGisMap predicate.</rdfs:comment>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/sco#mapLevel -->
+
+    <owl:DatatypeProperty rdf:about="&sco;mapLevel">
+        <rdfs:label xml:lang="en">map level</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Specify a map geographic level comparable to a latitude where the record is better displayed on a geographic map. This value is generally an integer between 0 and 21 where 0 is the entire World, and 21 the level used to visualize building details. This is generally used to the Google Map&#39;s zooming level.
+</rdfs:comment>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/sco#mapMarkerImageUrl -->
+
+    <owl:DatatypeProperty rdf:about="&sco;mapMarkerImageUrl">
+        <rdfs:label xml:lang="en">map marker image url</rdfs:label>
+        <rdfs:comment xml:lang="en">URL of an icon image to use as a marker on a web map. Normally, this property is used to annotate a Class description. All the records belonging to that class will be marked on a map, using this icon image.</rdfs:comment>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain rdf:resource="&owl;Class"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/sco#namedEntity -->
+
+    <owl:DatatypeProperty rdf:about="&sco;namedEntity">
+        <rdfs:label xml:lang="en">named entity</rdfs:label>
+        <rdfs:comment xml:lang="en">Specifies if a resource can be considered a named entity.
+
+Literal value: &quot;true&quot; or &quot;false&quot;</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/sco#orderingValue -->
+
+    <owl:DatatypeProperty rdf:about="&sco;orderingValue">
+        <rdfs:label xml:lang="en">ordering value</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The value of the orderingValue predicate is used to order the predicate  of a set of comparable predicates. This set of comparable predicates is normally created from the set composed of all compatibleWith predicates. This is normally used to plot, and order, values of different attributes describing a same record on some visualization component (for example, a linear chart).</rdfs:comment>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&owl;DatatypeProperty"/>
+                    <rdf:Description rdf:about="&owl;ObjectProperty"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/sco#polygonCoordinates -->
+
+    <owl:DatatypeProperty rdf:about="&sco;polygonCoordinates"/>
+    
+
+
+    <!-- http://purl.org/ontology/sco#polylineCoordinates -->
+
+    <owl:DatatypeProperty rdf:about="&sco;polylineCoordinates"/>
+    
+
+
+    <!-- http://purl.org/ontology/sco#relatedGisMap -->
+
+    <owl:DatatypeProperty rdf:about="&sco;relatedGisMap">
+        <rdfs:label xml:lang="en">related gis map</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Reference a map binary file created created from a ShapeFile map file and ClearMapsBuilder. The referenced map file is a serialized ActionalScript object.
+
+The sco:relatedGisMap defines a related map layout that is related to a given resource. The resource is related to that map layer in some ways, but it is not necessary part of the layer. Read more about maps in the sMap documentation page.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&sco;gisMap"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/sco#shortLabel -->
+
+    <owl:DatatypeProperty rdf:about="&sco;shortLabel">
+        <rdfs:label xml:lang="en">short label</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The short label is used to display a short version of the label of an attribute/type where it has to be displayed in a restrained region of a component.</rdfs:comment>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&owl;Class"/>
+                    <rdf:Description rdf:about="&owl;DatatypeProperty"/>
+                    <rdf:Description rdf:about="&owl;ObjectProperty"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/sco#storyAnnotatedTextUri -->
+
+    <owl:DatatypeProperty rdf:about="&sco;storyAnnotatedTextUri">
+        <rdfs:label xml:lang="en">story annotated text uri</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">URI Reference to the annotated text of a story. Annotations are serialized in XML given the GATE format.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/sco#storyTextUri -->
+
+    <owl:DatatypeProperty rdf:about="&sco;storyTextUri">
+        <rdfs:label xml:lang="en">sotry text uri</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">URI reference to the text of a story</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/sco#storyUrl -->
+
+    <owl:DatatypeProperty rdf:about="&sco;storyUrl">
+        <rdfs:label xml:lang="en">sotry URL</rdfs:label>
+        <rdfs:comment xml:lang="en">URL reference to a webpage representation of the story that got indexed into Scones.</rdfs:comment>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ontology/sco#Component -->
+
+    <owl:Class rdf:about="&sco;Component">
+        <rdfs:label xml:lang="en">component</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Semantic Component tool that is used to display structured data.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Class -->
+
+    <owl:Class rdf:about="&owl;Class"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#DatatypeProperty -->
+
+    <owl:Class rdf:about="&owl;DatatypeProperty"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#ObjectProperty -->
+
+    <owl:Class rdf:about="&owl;ObjectProperty"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ontology/sco#fgiasson -->
+
+    <owl:NamedIndividual rdf:about="&sco;fgiasson">
+        <rdfs:label>Frederick Giasson</rdfs:label>
+        <rdfs:seeAlso>http://fgiasson.com</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/sco#sBarChart -->
+
+    <owl:Thing rdf:about="&sco;sBarChart">
+        <rdf:type rdf:resource="&sco;Component"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <sco:shortLabel xml:lang="en">test-short-label</sco:shortLabel>
+        <sco:displayControl rdf:resource="&sco;sGenericBox"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://purl.org/ontology/sco#sControl -->
+
+    <owl:Thing rdf:about="&sco;sControl">
+        <rdf:type rdf:resource="&sco;Component"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://purl.org/ontology/sco#sGenericBox -->
+
+    <owl:Thing rdf:about="&sco;sGenericBox">
+        <rdf:type rdf:resource="&sco;Component"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://purl.org/ontology/sco#sHBox -->
+
+    <owl:Thing rdf:about="&sco;sHBox">
+        <rdf:type rdf:resource="&sco;Component"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://purl.org/ontology/sco#sImage -->
+
+    <owl:Thing rdf:about="&sco;sImage">
+        <rdf:type rdf:resource="&sco;Component"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://purl.org/ontology/sco#sLinearChart -->
+
+    <owl:Thing rdf:about="&sco;sLinearChart">
+        <rdf:type rdf:resource="&sco;Component"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://purl.org/ontology/sco#sMap -->
+
+    <owl:Thing rdf:about="&sco;sMap">
+        <rdf:type rdf:resource="&sco;Component"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://purl.org/ontology/sco#sPieChart -->
+
+    <owl:Thing rdf:about="&sco;sPieChart">
+        <rdf:type rdf:resource="&sco;Component"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://purl.org/ontology/sco#sRelationBrowser -->
+
+    <owl:Thing rdf:about="&sco;sRelationBrowser">
+        <rdf:type rdf:resource="&sco;Component"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://purl.org/ontology/sco#sStory -->
+
+    <owl:Thing rdf:about="&sco;sStory">
+        <rdf:type rdf:resource="&sco;Component"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://purl.org/ontology/sco#sText -->
+
+    <owl:Thing rdf:about="&sco;sText">
+        <rdf:type rdf:resource="&sco;Component"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://purl.org/ontology/sco#sWebMap -->
+
+    <owl:NamedIndividual rdf:about="&sco;sWebMap">
+        <rdf:type rdf:resource="&sco;Component"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+

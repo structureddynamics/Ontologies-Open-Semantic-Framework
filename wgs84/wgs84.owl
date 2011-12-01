@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY sco "http://purl.org/ontology/sco#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY iron "http://purl.org/ontology/iron#" >
+    <!ENTITY wgs84_pos "http://www.w3.org/2003/01/geo/wgs84_pos#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	 xmlns:iron="http://purl.org/ontology/iron#"
+     xmlns:sco="http://purl.org/ontology/sco#">
+	 
+   <Ontology rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos">
+        <iron:prefLabel rdf:datatype="&rdf;PlainLiteral">WGS84 Geo Positioning: an RDF vocabulary</iron:prefLabel>
+    </Ontology>	 
+	 
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <AnnotationProperty rdf:about="&sco;displayControl"/>
+    <AnnotationProperty rdf:about="&dc;date"/>
+    <AnnotationProperty rdf:about="&rdfs;label"/>
+    <AnnotationProperty rdf:about="&dc;description"/>
+    <AnnotationProperty rdf:about="&rdfs;comment"/>
+    <AnnotationProperty rdf:about="&dc;title"/>
+    <AnnotationProperty rdf:about="&iron;prefLabel"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#location -->
+
+    <ObjectProperty rdf:about="&wgs84_pos;location">
+        <rdfs:label>location</rdfs:label>
+        <rdfs:comment>The relation between something and the point,
+ or other geometrical thing in space, where it is.  For example, the realtionship between
+ a radio tower and a Point with a given lat and long.
+ Or a relationship between a park and its outline as a closed arc of points, or a road and
+ its location as a arc (a sequence of points).
+ Clearly in practice there will be limit to the accuracy of any such statement, but one would expect
+ an accuracy appropriate for the size of the object and uses such as mapping .
+ </rdfs:comment>
+        <rdfs:range rdf:resource="&wgs84_pos;SpatialThing"/>
+        <rdfs:subPropertyOf rdf:resource="&foaf;based_near"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/based_near -->
+
+    <ObjectProperty rdf:about="&foaf;based_near"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#alt -->
+
+    <DatatypeProperty rdf:about="&wgs84_pos;alt">
+        <rdfs:label>altitude</rdfs:label>
+        <rdfs:comment>The WGS84 altitude of a SpatialThing (decimal meters
+above the local reference ellipsoid).</rdfs:comment>
+        <rdfs:domain rdf:resource="&wgs84_pos;SpatialThing"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#lat -->
+
+    <DatatypeProperty rdf:about="&wgs84_pos;lat">
+        <rdfs:label>latitude</rdfs:label>
+        <rdfs:comment>The WGS84 latitude of a SpatialThing (decimal degrees).</rdfs:comment>
+        <sco:displayControl>sWebMap</sco:displayControl>
+        <rdfs:domain rdf:resource="&wgs84_pos;SpatialThing"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#lat_long -->
+
+    <DatatypeProperty rdf:about="&wgs84_pos;lat_long">
+        <rdfs:label>lat/long</rdfs:label>
+        <sco:displayControl>sWebMap</sco:displayControl>
+        <rdfs:comment>A comma-separated representation of a latitude, longitude coordinate.</rdfs:comment>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#long -->
+
+    <DatatypeProperty rdf:about="&wgs84_pos;long">
+        <rdfs:label>longitude</rdfs:label>
+        <sco:displayControl>sWebMap</sco:displayControl>
+        <rdfs:comment>The WGS84 longitude of a SpatialThing (decimal degrees).</rdfs:comment>
+        <rdfs:domain rdf:resource="&wgs84_pos;SpatialThing"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#Point -->
+
+    <Class rdf:about="&wgs84_pos;Point">
+        <rdfs:label>point</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&wgs84_pos;SpatialThing"/>
+        <rdfs:comment>A point, typically described using a coordinate system relative to Earth, such as WGS84.
+  </rdfs:comment>
+        <rdfs:comment>
+Uniquely identified by lat/long/alt. i.e.
+
+spaciallyIntersects(P1, P2) :- lat(P1, LAT), long(P1, LONG), alt(P1, ALT),
+  lat(P2, LAT), long(P2, LONG), alt(P2, ALT).
+
+sameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P2).
+  </rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
+
+    <Class rdf:about="&wgs84_pos;SpatialThing">
+        <rdfs:label>SpatialThing</rdfs:label>
+        <rdfs:comment>Anything with spatial extent, i.e. size, shape, or position.
+ e.g. people, places, bowling balls, as well as abstract areas like cubes.
+</rdfs:comment>
+    </Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+
