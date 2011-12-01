@@ -88,14 +88,6 @@ This is normally used to plot values of different attributes describing a same r
         <rdfs:comment xml:lang="en">Specify a &quot;comparableWith&quot; relation between two predicates. These comparable attributes have the same allowedValue(s), and the semantic of the predicates that are comparable is the same. Since the kind of value, and their semantic is the same, they are then considered comparable.
 
 This is normally used to plot values of different attributes describing a same record on some visualization component (for example, a linear chart).</rdfs:comment>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&owl;DatatypeProperty"/>
-                    <rdf:Description rdf:about="&owl;ObjectProperty"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -104,6 +96,14 @@ This is normally used to plot values of different attributes describing a same r
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&owl;DatatypeProperty"/>
+                    <rdf:Description rdf:about="&owl;ObjectProperty"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -113,7 +113,7 @@ This is normally used to plot values of different attributes describing a same r
     <owl:ObjectProperty rdf:about="&sco;displayControl">
         <rdfs:label xml:lang="en">display control</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">Reference a control identifier that can be used to display value(s) of a given predicate.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Annotate a class or a property to reference it to a display control. This indicates what are the semantic components that can normally be used to display some information about a record of a certain type, or a record that is described using some property.</rdfs:comment>
         <rdfs:range rdf:resource="&sco;Component"/>
         <rdfs:domain rdf:resource="&owl;Thing"/>
     </owl:ObjectProperty>
