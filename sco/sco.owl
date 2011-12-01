@@ -88,14 +88,6 @@ This is normally used to plot values of different attributes describing a same r
         <rdfs:comment xml:lang="en">Specify a &quot;comparableWith&quot; relation between two predicates. These comparable attributes have the same allowedValue(s), and the semantic of the predicates that are comparable is the same. Since the kind of value, and their semantic is the same, they are then considered comparable.
 
 This is normally used to plot values of different attributes describing a same record on some visualization component (for example, a linear chart).</rdfs:comment>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&owl;DatatypeProperty"/>
-                    <rdf:Description rdf:about="&owl;ObjectProperty"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -104,6 +96,14 @@ This is normally used to plot values of different attributes describing a same r
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&owl;DatatypeProperty"/>
+                    <rdf:Description rdf:about="&owl;ObjectProperty"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -155,7 +155,13 @@ The semantic components will make all the properties that share the same sco:uni
 
     <!-- http://purl.org/ontology/sco#geoHash -->
 
-    <owl:DatatypeProperty rdf:about="&sco;geoHash"/>
+    <owl:DatatypeProperty rdf:about="&sco;geoHash">
+        <rdfs:label xml:lang="en">geohash</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Defines the Geohash of a record&#39;s location.
+
+More informationa bout Geohash: http://en.wikipedia.org/wiki/Geohash</rdfs:comment>
+    </owl:DatatypeProperty>
     
 
 
@@ -231,13 +237,25 @@ Literal value: &quot;true&quot; or &quot;false&quot;</rdfs:comment>
 
     <!-- http://purl.org/ontology/sco#polygonCoordinates -->
 
-    <owl:DatatypeProperty rdf:about="&sco;polygonCoordinates"/>
+    <owl:DatatypeProperty rdf:about="&sco;polygonCoordinates">
+        <rdfs:label xml:lang="en">polygon coordinates</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Defines the coordinates of a polygon shape that represent a geographic area determined by a record.
+
+Coordinates are defined as coordinates in KML: http://code.google.com/apis/kml/documentation/kmlreference.html#coordinates</rdfs:comment>
+    </owl:DatatypeProperty>
     
 
 
     <!-- http://purl.org/ontology/sco#polylineCoordinates -->
 
-    <owl:DatatypeProperty rdf:about="&sco;polylineCoordinates"/>
+    <owl:DatatypeProperty rdf:about="&sco;polylineCoordinates">
+        <rdfs:label xml:lang="en">polyline coordinates</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Defines the coordinates of a polyline shape that represents a record on a map.
+
+Coordinates are defined as coordinates in KML: http://code.google.com/apis/kml/documentation/kmlreference.html#coordinates</rdfs:comment>
+    </owl:DatatypeProperty>
     
 
 
