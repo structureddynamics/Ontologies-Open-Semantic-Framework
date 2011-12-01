@@ -1,0 +1,19 @@
+== Introduction ==
+
+These are the core ontologies used by different parts of the [http://techwiki.openstructs.org/index.php/Open_Semantic_Framework Open Semantic Framework]. These ontologies should be loaded in [http://techwiki.openstructs.org/index.php/StructWSF structWSF] using the structOntology [http://techwiki.openstructs.org/index.php/ConStuct conStruct] module as described in the [http://techwiki.openstructs.org/index.php/StructWSF_Installation_Guide#STEP_14:_Import_Ontologies structWSF installation manual].
+
+Some of the ontologies have been developed specifically for OSF such as:
+
+# SCO (Semantic Component Ontology)
+# WSF (Web Services Framework Ontology)
+# irON (Instance Record and Object Notation Ontology)
+
+Other ontologies have been developed by others, but are saved here for conveniancy, such as:
+
+# RDF
+# RDFS
+# OWL
+
+Finally, some ontologies have been developed by others, but modified for the Open Semantic Framework's purpose, such as:
+
+# WGS84 (for which we added SCO annotations to some of its datatype properties)
