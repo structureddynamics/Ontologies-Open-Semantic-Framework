@@ -153,6 +153,20 @@ The semantic components will make all the properties that share the same sco:uni
     
 
 
+    <!-- http://purl.org/ontology/sco#dashboardSessionFileUri -->
+
+    <owl:DatatypeProperty rdf:about="&sco;dashboardSessionFileUri">
+        <rdfs:label xml:lang="en">dashboard sessions file uri</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">URI reference to the Dashboard session accessible on the Web.
+
+This is used by the sDashboard semantic component.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://purl.org/ontology/sco#geoHash -->
 
     <owl:DatatypeProperty rdf:about="&sco;geoHash">
