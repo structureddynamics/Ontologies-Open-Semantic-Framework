@@ -7,6 +7,7 @@ Some of the ontologies have been developed specifically for OSF such as:
 # SCO (Semantic Component Ontology)
 # WSF (Web Services Framework Ontology)
 # irON (Instance Record and Object Notation Ontology)
+# AGGR (Aggregation Ontology)
 
 Other ontologies have been developed by others, but are saved here for conveniancy, such as:
 
