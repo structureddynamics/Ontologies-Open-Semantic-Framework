@@ -340,12 +340,6 @@ This is the first authentication/encryption layer of the web service security st
     
 
 
-    <!-- http://xmlns.com/foaf/0.1/name -->
-
-    <owl:DatatypeProperty rdf:about="&foaf;name"/>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -545,7 +539,6 @@ Any web service can do one, or many of these 4 basic usage function: (1) create,
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://fgiasson.com/</rdfs:seeAlso>
         <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
-        <foaf:name>Frederick Giasson</foaf:name>
     </foaf:Person>
 </rdf:RDF>
 
