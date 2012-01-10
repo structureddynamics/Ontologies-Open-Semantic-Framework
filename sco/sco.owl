@@ -66,8 +66,27 @@ This is normally used to plot values of different attributes describing a same r
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
     <owl:AnnotationProperty rdf:about="&dc;title"/>
-    
+    <owl:AnnotationProperty rdf:about="&sco;shortLabel">
+        <rdfs:label xml:lang="en">short label</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The short label is used to display a short version of the label of an attribute/type where it has to be displayed in a restrained region of a component.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&sco;orderingValue">
+        <rdfs:label xml:lang="en">ordering value</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The value of the orderingValue predicate is used to order the predicate  of a set of comparable predicates. This set of comparable predicates is normally created from the set composed of all compatibleWith predicates. This is normally used to plot, and order, values of different attributes describing a same record on some visualization component (for example, a linear chart).</rdfs:comment>
+    </owl:AnnotationProperty>	
+    <owl:AnnotationProperty rdf:about="&sco;displayControl">
+        <rdfs:label xml:lang="en">display control</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Annotate a class or a property to reference it to a display control. This indicates what are the semantic components that can normally be used to display some information about a record of a certain type, or a record that is described using some property.</rdfs:comment>	
+    </owl:AnnotationProperty>	    
+    <owl:AnnotationProperty rdf:about="&sco;unitType">
+        <rdfs:label xml:lang="en">unit type</rdfs:label>
+        <rdfs:comment xml:lang="en">URI reference to a unit type ontology. The sco:unitType property is used to determine the type of unit referenced by a property. For example, if a data property has xsd:float as range, then sco:unitType determine what kind of things this number refers to.
 
+The semantic components will make all the properties that share the same sco:unitType comparable (so, possibly displayable on the same semantic component, such as the sBarChart and the sLinearChart). </rdfs:comment>
+    </owl:AnnotationProperty>
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
