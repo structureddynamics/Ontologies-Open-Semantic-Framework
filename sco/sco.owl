@@ -53,8 +53,6 @@
      -->
 
     <owl:AnnotationProperty rdf:about="&dc;creator"/>
-    <owl:AnnotationProperty rdf:about="&owl;versionInfo"/>
-    <owl:AnnotationProperty rdf:about="&rdfs;seeAlso"/>
     <owl:AnnotationProperty rdf:about="&sco;comparableWith">
         <rdfs:label xml:lang="en">comparable with</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
@@ -62,31 +60,40 @@
 
 This is normally used to plot values of different attributes describing a same record on some visualization component (for example, a linear chart).</rdfs:comment>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&rdfs;isDefinedBy"/>
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
-    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
-    <owl:AnnotationProperty rdf:about="&dc;title"/>
     <owl:AnnotationProperty rdf:about="&sco;shortLabel">
         <rdfs:label xml:lang="en">short label</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">The short label is used to display a short version of the label of an attribute/type where it has to be displayed in a restrained region of a component.</rdfs:comment>
     </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&owl;versionInfo"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;seeAlso"/>
     <owl:AnnotationProperty rdf:about="&sco;orderingValue">
         <rdfs:label xml:lang="en">ordering value</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">The value of the orderingValue predicate is used to order the predicate  of a set of comparable predicates. This set of comparable predicates is normally created from the set composed of all compatibleWith predicates. This is normally used to plot, and order, values of different attributes describing a same record on some visualization component (for example, a linear chart).</rdfs:comment>
-    </owl:AnnotationProperty>	
+    </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&sco;displayControl">
         <rdfs:label xml:lang="en">display control</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">Annotate a class or a property to reference it to a display control. This indicates what are the semantic components that can normally be used to display some information about a record of a certain type, or a record that is described using some property.</rdfs:comment>	
-    </owl:AnnotationProperty>	    
+        <rdfs:comment xml:lang="en">Annotate a class or a property to reference it to a display control. This indicates what are the semantic components that can normally be used to display some information about a record of a certain type, or a record that is described using some property.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&rdfs;isDefinedBy"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
     <owl:AnnotationProperty rdf:about="&sco;unitType">
         <rdfs:label xml:lang="en">unit type</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">URI reference to a unit type ontology. The sco:unitType property is used to determine the type of unit referenced by a property. For example, if a data property has xsd:float as range, then sco:unitType determine what kind of things this number refers to.
 
 The semantic components will make all the properties that share the same sco:unitType comparable (so, possibly displayable on the same semantic component, such as the sBarChart and the sLinearChart). </rdfs:comment>
     </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&sco;ignoredBy">
+        <rdfs:label xml:lang="en">ignored by</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Specify if a property, class or named individual  has to be ignored by a specific semantci component tool.</rdfs:comment>
+    </owl:AnnotationProperty>    
+
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -139,10 +146,23 @@ This is normally used to plot values of different attributes describing a same r
     
 
 
+    <!-- http://purl.org/ontology/sco#ignoredBy -->
+
+    <owl:ObjectProperty rdf:about="&sco;ignoredBy">
+        <rdfs:label xml:lang="en">ignored by</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Specify if a property, class or named individual  has to be ignored by a specific semantci component tool.</rdfs:comment>
+        <rdfs:range rdf:resource="&sco;Component"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.org/ontology/sco#relationBrowserNodeType -->
 
     <owl:ObjectProperty rdf:about="&sco;relationBrowserNodeType">
         <rdfs:label xml:lang="en">relation browser node type</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">Reference to a relation browser node type used to skin a node according to its type. This should be a reference to a type URI defined in a relation browse nodes skins configuration file. If a record is defined with this property, the relation browser will try to find a node of that type to apply to it as a skin.</rdfs:comment>
     </owl:ObjectProperty>
     
@@ -432,8 +452,6 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
     <owl:Thing rdf:about="&sco;sBarChart">
         <rdf:type rdf:resource="&sco;Component"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
-        <sco:shortLabel xml:lang="en">test-short-label</sco:shortLabel>
-        <sco:displayControl rdf:resource="&sco;sGenericBox"/>
     </owl:Thing>
     
 
