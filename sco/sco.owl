@@ -91,7 +91,7 @@ The semantic components will make all the properties that share the same sco:uni
     <owl:AnnotationProperty rdf:about="&sco;ignoredBy">
         <rdfs:label xml:lang="en">ignored by</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">Specify if a property, class or named individual  has to be ignored by a specific semantci component tool.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Specify if a property, class or named individual  has to be ignored by a specific semantic component tool.</rdfs:comment>
     </owl:AnnotationProperty>    
 
 
