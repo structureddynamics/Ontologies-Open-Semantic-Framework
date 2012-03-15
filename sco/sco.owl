@@ -39,6 +39,7 @@
         <owl:versionInfo rdf:datatype="&rdf;PlainLiteral">http://purl.org/ontology/sco/0.2/</owl:versionInfo>
         <dc:title xml:lang="en">Semantic Components Ontology</dc:title>
         <rdfs:comment xml:lang="en">This ontology extends OWL ontologies to annotate classes and properties with related semantic component display tools.</rdfs:comment>
+        <sco:ontologyType rdf:resource="&sco;administrativeOntology"/>
         <dc:creator rdf:resource="&sco;fgiasson"/>
     </owl:Ontology>
     
@@ -67,18 +68,18 @@ This is normally used to plot values of different attributes describing a same r
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
-    <owl:AnnotationProperty rdf:about="&sco;displayControl">
-        <rdfs:label xml:lang="en">display control</rdfs:label>
-        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">Annotate a class or a property to reference it to a display control. This indicates what are the semantic components that can normally be used to display some information about a record of a certain type, or a record that is described using some property.</rdfs:comment>
-    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&owl;versionInfo"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;seeAlso"/>
     <owl:AnnotationProperty rdf:about="&sco;orderingValue">
         <rdfs:label xml:lang="en">ordering value</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">The value of the orderingValue predicate is used to order the predicate  of a set of comparable predicates. This set of comparable predicates is normally created from the set composed of all compatibleWith predicates. This is normally used to plot, and order, values of different attributes describing a same record on some visualization component (for example, a linear chart).</rdfs:comment>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&rdfs;seeAlso"/>
-    <owl:AnnotationProperty rdf:about="&owl;versionInfo"/>
+    <owl:AnnotationProperty rdf:about="&sco;displayControl">
+        <rdfs:label xml:lang="en">display control</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Annotate a class or a property to reference it to a display control. This indicates what are the semantic components that can normally be used to display some information about a record of a certain type, or a record that is described using some property.</rdfs:comment>
+    </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&rdfs;isDefinedBy"/>
     <owl:AnnotationProperty rdf:about="&sco;ignoredBy">
         <rdfs:label xml:lang="en">ignored by</rdfs:label>
@@ -86,6 +87,12 @@ This is normally used to plot values of different attributes describing a same r
         <rdfs:comment xml:lang="en">Specify if a property, class or named individual  has to be ignored by a specific semantci component tool.</rdfs:comment>
         <rdfs:comment xml:lang="en">Specify if a property, class or named individual  has to be ignored by a specific semantic component tool.</rdfs:comment>
     </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&sco;ontologyType">
+        <rdfs:label xml:lang="en">comparable with</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Specify what is the SCO type of an ontology.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
     <owl:AnnotationProperty rdf:about="&sco;unitType">
         <rdfs:label xml:lang="en">unit type</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
@@ -93,7 +100,6 @@ This is normally used to plot values of different attributes describing a same r
 
 The semantic components will make all the properties that share the same sco:unitType comparable (so, possibly displayable on the same semantic component, such as the sBarChart and the sLinearChart). </rdfs:comment>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&dc;title"/>
     
 
 
@@ -116,14 +122,6 @@ The semantic components will make all the properties that share the same sco:uni
         <rdfs:comment xml:lang="en">Specify a &quot;comparableWith&quot; relation between two predicates. These comparable attributes have the same allowedValue(s), and the semantic of the predicates that are comparable is the same. Since the kind of value, and their semantic is the same, they are then considered comparable.
 
 This is normally used to plot values of different attributes describing a same record on some visualization component (for example, a linear chart).</rdfs:comment>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&owl;DatatypeProperty"/>
-                    <rdf:Description rdf:about="&owl;ObjectProperty"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -132,6 +130,14 @@ This is normally used to plot values of different attributes describing a same r
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&owl;DatatypeProperty"/>
+                    <rdf:Description rdf:about="&owl;ObjectProperty"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -157,18 +163,6 @@ This is normally used to plot values of different attributes describing a same r
         <rdfs:comment xml:lang="en">Specify if a property, class or named individual  has to be ignored by a specific semantic component tool.</rdfs:comment>
         <rdfs:range rdf:resource="&sco;Component"/>
         <rdfs:domain rdf:resource="&owl;Thing"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/ontology/sco#ontologyType -->
-
-    <owl:ObjectProperty rdf:about="&sco;ontologyType">
-        <rdfs:label xml:lang="en">comparable with</rdfs:label>
-        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">Specify what is the SCO type of an ontology.</rdfs:comment>
-        <rdfs:range rdf:resource="&sco;OntologyType"/>
-        <rdfs:domain rdf:resource="&owl;Ontology"/>
     </owl:ObjectProperty>
     
 
