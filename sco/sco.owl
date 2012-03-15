@@ -36,7 +36,7 @@
      xmlns:doap="http://usefulinc.com/ns/doap#"
      xmlns:sco="http://purl.org/ontology/sco#">
     <owl:Ontology rdf:about="http://purl.org/ontology/sco">
-        <owl:versionInfo rdf:datatype="&rdf;PlainLiteral">http://purl.org/ontology/sco/0.1/</owl:versionInfo>
+        <owl:versionInfo rdf:datatype="&rdf;PlainLiteral">http://purl.org/ontology/sco/0.2/</owl:versionInfo>
         <dc:title xml:lang="en">Semantic Components Ontology</dc:title>
         <rdfs:comment xml:lang="en">This ontology extends OWL ontologies to annotate classes and properties with related semantic component display tools.</rdfs:comment>
         <dc:creator rdf:resource="&sco;fgiasson"/>
@@ -60,27 +60,32 @@
 
 This is normally used to plot values of different attributes describing a same record on some visualization component (for example, a linear chart).</rdfs:comment>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&sco;shortLabel">
         <rdfs:label xml:lang="en">short label</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">The short label is used to display a short version of the label of an attribute/type where it has to be displayed in a restrained region of a component.</rdfs:comment>
     </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
-    <owl:AnnotationProperty rdf:about="&owl;versionInfo"/>
-    <owl:AnnotationProperty rdf:about="&rdfs;seeAlso"/>
-    <owl:AnnotationProperty rdf:about="&sco;orderingValue">
-        <rdfs:label xml:lang="en">ordering value</rdfs:label>
-        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">The value of the orderingValue predicate is used to order the predicate  of a set of comparable predicates. This set of comparable predicates is normally created from the set composed of all compatibleWith predicates. This is normally used to plot, and order, values of different attributes describing a same record on some visualization component (for example, a linear chart).</rdfs:comment>
-    </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&sco;displayControl">
         <rdfs:label xml:lang="en">display control</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">Annotate a class or a property to reference it to a display control. This indicates what are the semantic components that can normally be used to display some information about a record of a certain type, or a record that is described using some property.</rdfs:comment>
     </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&sco;orderingValue">
+        <rdfs:label xml:lang="en">ordering value</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">The value of the orderingValue predicate is used to order the predicate  of a set of comparable predicates. This set of comparable predicates is normally created from the set composed of all compatibleWith predicates. This is normally used to plot, and order, values of different attributes describing a same record on some visualization component (for example, a linear chart).</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&rdfs;seeAlso"/>
+    <owl:AnnotationProperty rdf:about="&owl;versionInfo"/>
     <owl:AnnotationProperty rdf:about="&rdfs;isDefinedBy"/>
-    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    <owl:AnnotationProperty rdf:about="&sco;ignoredBy">
+        <rdfs:label xml:lang="en">ignored by</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Specify if a property, class or named individual  has to be ignored by a specific semantci component tool.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Specify if a property, class or named individual  has to be ignored by a specific semantic component tool.</rdfs:comment>
+    </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&sco;unitType">
         <rdfs:label xml:lang="en">unit type</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
@@ -88,11 +93,8 @@ This is normally used to plot values of different attributes describing a same r
 
 The semantic components will make all the properties that share the same sco:unitType comparable (so, possibly displayable on the same semantic component, such as the sBarChart and the sLinearChart). </rdfs:comment>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&sco;ignoredBy">
-        <rdfs:label xml:lang="en">ignored by</rdfs:label>
-        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">Specify if a property, class or named individual  has to be ignored by a specific semantic component tool.</rdfs:comment>
-    </owl:AnnotationProperty>    
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
 
 
     <!-- 
@@ -152,8 +154,21 @@ This is normally used to plot values of different attributes describing a same r
         <rdfs:label xml:lang="en">ignored by</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">Specify if a property, class or named individual  has to be ignored by a specific semantci component tool.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Specify if a property, class or named individual  has to be ignored by a specific semantic component tool.</rdfs:comment>
         <rdfs:range rdf:resource="&sco;Component"/>
         <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/sco#ontologyType -->
+
+    <owl:ObjectProperty rdf:about="&sco;ontologyType">
+        <rdfs:label xml:lang="en">comparable with</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Specify what is the SCO type of an ontology.</rdfs:comment>
+        <rdfs:range rdf:resource="&sco;OntologyType"/>
+        <rdfs:domain rdf:resource="&owl;Ontology"/>
     </owl:ObjectProperty>
     
 
@@ -172,6 +187,7 @@ This is normally used to plot values of different attributes describing a same r
 
     <owl:ObjectProperty rdf:about="&sco;unitType">
         <rdfs:label xml:lang="en">unit type</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">URI reference to a unit type ontology. The sco:unitType property is used to determine the type of unit referenced by a property. For example, if a data property has xsd:float as range, then sco:unitType determine what kind of things this number refers to.
 
 The semantic components will make all the properties that share the same sco:unitType comparable (so, possibly displayable on the same semantic component, such as the sBarChart and the sLinearChart). </rdfs:comment>
@@ -403,6 +419,16 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
     
 
 
+    <!-- http://purl.org/ontology/sco#OntologyType -->
+
+    <owl:Class rdf:about="&sco;OntologyType">
+        <rdfs:label xml:lang="en">ontology type</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A loosely defined type for an ontology. These types are used to loosely categorize ontologies by some kind of types.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.w3.org/2002/07/owl#Class -->
 
     <owl:Class rdf:about="&owl;Class"/>
@@ -418,6 +444,12 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
     <!-- http://www.w3.org/2002/07/owl#ObjectProperty -->
 
     <owl:Class rdf:about="&owl;ObjectProperty"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Ontology -->
+
+    <owl:Class rdf:about="&owl;Ontology"/>
     
 
 
@@ -438,6 +470,16 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
     
 
 
+    <!-- http://purl.org/ontology/sco#administrativeOntology -->
+
+    <owl:NamedIndividual rdf:about="&sco;administrativeOntology">
+        <rdf:type rdf:resource="&sco;OntologyType"/>
+        <rdfs:label>administrative ontology</rdfs:label>
+        <rdfs:comment xml:lang="en">Ontology normally used by systems for administrative purposes such as defining using permissions, tool behaviors, dataset descriptions, etc.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://purl.org/ontology/sco#fgiasson -->
 
     <owl:NamedIndividual rdf:about="&sco;fgiasson">
@@ -447,11 +489,32 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
     
 
 
+    <!-- http://purl.org/ontology/sco#localOntology -->
+
+    <owl:NamedIndividual rdf:about="&sco;localOntology">
+        <rdf:type rdf:resource="&sco;OntologyType"/>
+        <rdfs:label>local ontology</rdfs:label>
+        <rdfs:comment xml:lang="en">Ontology used to describe the things in relation to a Open Semantic Framework (OSF) instance. These ontologies normally defines all the classes and properties not defined in any reference ontologies that need to be defined in one of these OSF instances.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/sco#referenceOntology -->
+
+    <owl:NamedIndividual rdf:about="&sco;referenceOntology">
+        <rdf:type rdf:resource="&sco;OntologyType"/>
+        <rdfs:label>reference ontology</rdfs:label>
+        <rdfs:comment xml:lang="en">Ontology that are normally used by a wide range of people and organization to define common entities such as People, Books, etc. Such ontologies could be FOAF, BIBO, DCTERMS, UMBEL, etc.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://purl.org/ontology/sco#sBarChart -->
 
     <owl:Thing rdf:about="&sco;sBarChart">
         <rdf:type rdf:resource="&sco;Component"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label xml:lang="en">sBarChart</rdfs:label>
     </owl:Thing>
     
 
@@ -461,6 +524,7 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
     <owl:Thing rdf:about="&sco;sControl">
         <rdf:type rdf:resource="&sco;Component"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>sControl</rdfs:label>
     </owl:Thing>
     
 
@@ -470,6 +534,7 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
     <owl:Thing rdf:about="&sco;sGenericBox">
         <rdf:type rdf:resource="&sco;Component"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>sGenericBox</rdfs:label>
     </owl:Thing>
     
 
@@ -479,6 +544,7 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
     <owl:Thing rdf:about="&sco;sHBox">
         <rdf:type rdf:resource="&sco;Component"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>sHBox</rdfs:label>
     </owl:Thing>
     
 
@@ -488,6 +554,7 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
     <owl:Thing rdf:about="&sco;sImage">
         <rdf:type rdf:resource="&sco;Component"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>sImage</rdfs:label>
     </owl:Thing>
     
 
@@ -497,6 +564,7 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
     <owl:Thing rdf:about="&sco;sLinearChart">
         <rdf:type rdf:resource="&sco;Component"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>sLinearChart</rdfs:label>
     </owl:Thing>
     
 
@@ -506,6 +574,7 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
     <owl:Thing rdf:about="&sco;sMap">
         <rdf:type rdf:resource="&sco;Component"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>sMap</rdfs:label>
     </owl:Thing>
     
 
@@ -515,6 +584,7 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
     <owl:Thing rdf:about="&sco;sPieChart">
         <rdf:type rdf:resource="&sco;Component"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>sPieChart</rdfs:label>
     </owl:Thing>
     
 
@@ -524,6 +594,7 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
     <owl:Thing rdf:about="&sco;sRelationBrowser">
         <rdf:type rdf:resource="&sco;Component"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>sRelationBrowser</rdfs:label>
     </owl:Thing>
     
 
@@ -533,6 +604,7 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
     <owl:Thing rdf:about="&sco;sStory">
         <rdf:type rdf:resource="&sco;Component"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>sStory</rdfs:label>
     </owl:Thing>
     
 
@@ -542,6 +614,7 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
     <owl:Thing rdf:about="&sco;sText">
         <rdf:type rdf:resource="&sco;Component"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>sText</rdfs:label>
     </owl:Thing>
     
 
@@ -550,6 +623,7 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
 
     <owl:NamedIndividual rdf:about="&sco;sWebMap">
         <rdf:type rdf:resource="&sco;Component"/>
+        <rdfs:label>sWebMap</rdfs:label>
     </owl:NamedIndividual>
 </rdf:RDF>
 
