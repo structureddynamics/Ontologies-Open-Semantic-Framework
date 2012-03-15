@@ -88,7 +88,7 @@ This is normally used to plot values of different attributes describing a same r
         <rdfs:comment xml:lang="en">Specify if a property, class or named individual  has to be ignored by a specific semantic component tool.</rdfs:comment>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&sco;ontologyType">
-        <rdfs:label xml:lang="en">comparable with</rdfs:label>
+        <rdfs:label xml:lang="en">ontology type</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">Specify what is the SCO type of an ontology.</rdfs:comment>
     </owl:AnnotationProperty>
