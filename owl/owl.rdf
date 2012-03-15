@@ -23,6 +23,7 @@
 <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
 <!ENTITY grddl "http://www.w3.org/2003/g/data-view#" >
 <!ENTITY owl "&location;#" >
+<!ENTITY sco "http://purl.org/ontology/sco#" >
 
 ]>
 <rdf:RDF
@@ -32,6 +33,7 @@
     xmlns:xsd = "&xsd;"
     xmlns:owl ="&owl;"
     xmlns:dc = "&dc;"
+	xmlns:sco = "&sco;"
     xmlns:grddl = "&grddl;"
     >
 
@@ -72,8 +74,12 @@
    </rdfs:comment>
 
    <owl:versionInfo>$Date: 2009/11/15 10:54:12 $</owl:versionInfo>
-
+   
+   <sco:ontologyType rdf:resource="http://purl.org/ontology/sco#referenceOntology" />
+   
    </owl:Ontology>
+   
+   <owl:AnnotationProperty rdf:about="&sco;ontologyType"/>
 
 <!-- Processed by Id: cwm.py,v 1.197 2007/12/13 15:38:39 syosi Exp -->
 

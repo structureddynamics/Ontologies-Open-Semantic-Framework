@@ -12,6 +12,7 @@
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY ns "http://www.w3.org/2003/06/sw-vocab-status/ns#" >
+	<!ENTITY sco "http://purl.org/ontology/sco#" >
 ]>
 
 
@@ -22,6 +23,7 @@
      xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	 xmlns:sco="http://purl.org/ontology/sco#"
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
@@ -32,6 +34,7 @@
         <dc:title rdf:datatype="&rdf;PlainLiteral">irON (instance record and Object Notation)</dc:title>
         <dc:description xml:lang="en">irON (instance record and Object Notation) is a abstract notation for specifying RDF triples and schema in non-RDF forms. The notation supports writing RDF and schema in JSON (irJSON), XML (irXML) and comma-delimited (CSV) formats (commON). The notation specification includes guidance for creating instance records (including in bulk), linkages to existing ontologies and schema, and schema definitions</dc:description>
         <dc:creator rdf:resource="http://purl.org/ontology/iron#fgiasson"/>
+		<sco:ontologyType rdf:resource="http://purl.org/ontology/sco#referenceOntology" />
     </owl:Ontology>
     
 
@@ -75,6 +78,7 @@
         <prefLabel xml:lang="en">hidden label</prefLabel>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="http://purl.org/ontology/iron#linkage"/>
+	<owl:AnnotationProperty rdf:about="&sco;ontologyType"/>
     
 
 

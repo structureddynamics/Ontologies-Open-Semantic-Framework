@@ -2,13 +2,17 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
    xmlns:owl="http://www.w3.org/2002/07/owl#" 
-   xmlns:dc="http://purl.org/dc/elements/1.1/">
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:sco="http://purl.org/ontology/sco#">
 
  <owl:Ontology 
      rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <dc:title>The RDF Vocabulary (RDF)</dc:title>
    <dc:description>This is the RDF Schema for the RDF vocabulary defined in the RDF namespace.</dc:description>
+   <sco:ontologyType rdf:resource="http://purl.org/ontology/sco#referenceOntology" />
  </owl:Ontology>
+ 
+ <owl:AnnotationProperty rdf:about="http://purl.org/ontology/sco#ontologyType"/>
  
  <!-- Added by Ivan Herman, 2010-12-30, from here... -->
  <rdfs:Datatype rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">
