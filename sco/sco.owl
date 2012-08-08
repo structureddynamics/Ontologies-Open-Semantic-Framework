@@ -372,7 +372,7 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
     <!-- http://purl.org/ontology/sco#storyTextUri -->
 
     <owl:DatatypeProperty rdf:about="&sco;storyTextUri">
-        <rdfs:label xml:lang="en">sotry text uri</rdfs:label>
+        <rdfs:label xml:lang="en">story text uri</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://purl.org/ontology/sco#</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">URI reference to the text of a story</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
@@ -384,7 +384,7 @@ The sco:relatedGisMap defines a related map layout that is related to a given re
     <!-- http://purl.org/ontology/sco#storyUrl -->
 
     <owl:DatatypeProperty rdf:about="&sco;storyUrl">
-        <rdfs:label xml:lang="en">sotry URL</rdfs:label>
+        <rdfs:label xml:lang="en">story URL</rdfs:label>
         <rdfs:comment xml:lang="en">URL reference to a webpage representation of the story that got indexed into Scones.</rdfs:comment>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
         <rdfs:domain rdf:resource="&owl;Thing"/>
