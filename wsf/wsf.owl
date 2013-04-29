@@ -226,6 +226,17 @@ This property is used by the Tracker web service endpoint.</rdfs:comment>
     
 
 
+    <!-- http://purl.org/ontology/wsf#collation -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/wsf#collation">
+        <rdfs:label xml:lang="en">collation</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Specify the full corrected Search web service endpoint query that would have returned no results and that may have spelling issues.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#SpellSuggestion"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://purl.org/ontology/wsf#create -->
 
     <owl:DatatypeProperty rdf:about="http://purl.org/ontology/wsf#create">
@@ -278,6 +289,17 @@ This property is used by the Datasets Syncing Framework.</rdfs:comment>
         <rdfs:comment xml:lang="en">URL of the endpoint where wecan have access to the web service on the Web.</rdfs:comment>
         <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#WebService"/>
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/wsf#frequency -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/wsf#frequency">
+        <rdfs:label xml:lang="en">frequency</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Specify frequency of a suggested term to correct a missspelled word used within a Search web service query. This frequency can be used to order all the suggest terms for a misspelled keyword.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#SpellSuggestion"/>
     </owl:DatatypeProperty>
     
 
@@ -361,6 +383,16 @@ This is the first authentication/encryption layer of the web service security st
     
 
 
+    <!-- http://purl.org/ontology/wsf#suggestion -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/wsf#suggestion">
+        <rdfs:label xml:lang="en">suggestion</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Specify a suggested term to correct a missspelled word used within a Search web service query.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#SpellSuggestion"/>
+    </owl:DatatypeProperty>
+    
+
     <!-- http://purl.org/ontology/wsf#update -->
 
     <owl:DatatypeProperty rdf:about="http://purl.org/ontology/wsf#update">
@@ -416,6 +448,19 @@ This is the first authentication/encryption layer of the web service security st
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#update"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#datasetAccess"/>
+                <owl:onClass rdf:resource="http://rdfs.org/ns/void#Dataset"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#read"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
@@ -430,19 +475,6 @@ This is the first authentication/encryption layer of the web service security st
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#webServiceAccess"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/ontology/wsf#WebService"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#datasetAccess"/>
-                <owl:onClass rdf:resource="http://rdfs.org/ns/void#Dataset"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#update"/>
-                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
@@ -490,7 +522,7 @@ This property is used by the Tracker web service endpoint.</rdfs:comment>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#create"/>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#read"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -502,13 +534,13 @@ This property is used by the Tracker web service endpoint.</rdfs:comment>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#read"/>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#delete"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#delete"/>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#create"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -520,6 +552,16 @@ Any web service can do one, or many of these 4 basic usage function: (1) create,
     
 
 
+    <!-- http://purl.org/ontology/wsf#SpellSuggestion -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/wsf#SpellSuggestion">
+        <rdfs:label xml:lang="en">Spell suggestion</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Used by the structWSF Search web service endpoint to define spell suggestions if a search query returns no result and if the spellcheck parameter is true.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/ontology/wsf#WebService -->
 
     <owl:Class rdf:about="http://purl.org/ontology/wsf#WebService">
@@ -527,15 +569,15 @@ Any web service can do one, or many of these 4 basic usage function: (1) create,
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#hasCrudUsage"/>
-                <owl:onClass rdf:resource="http://purl.org/ontology/wsf#CrudUsage"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#endpoint"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#endpoint"/>
-                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#hasCrudUsage"/>
+                <owl:onClass rdf:resource="http://purl.org/ontology/wsf#CrudUsage"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
