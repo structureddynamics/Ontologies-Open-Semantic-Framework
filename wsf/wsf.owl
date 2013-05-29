@@ -78,6 +78,18 @@
     
 
 
+    <!-- http://purl.org/ontology/wsf#fromDataset -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/wsf#fromDataset">
+        <rdfs:label xml:lang="en">from dataset</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Specifies the dataset provenance of the record that is related to the revision record.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#Revision"/>
+        <rdfs:range rdf:resource="http://rdfs.org/ns/void#Dataset"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.org/ontology/wsf#hasAccess -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/ontology/wsf#hasAccess">
@@ -123,6 +135,42 @@
         <rdfs:comment xml:lang="en">Define the fact that a certain web service belong to a web service(s) framework.</rdfs:comment>
         <rdfs:range rdf:resource="http://purl.org/ontology/wsf#WebService"/>
         <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#WebServiceFramework"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/wsf#performer -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/wsf#performer">
+        <rdfs:label xml:lang="en">performer</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">User that created the revision record.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#Revision"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/wsf#revisionStatus -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/wsf#revisionStatus">
+        <rdfs:label xml:lang="en">revision status</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Specifies the current publication status of a revision record.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#Revision"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/wsf#RevisionStatus"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/wsf#revisionUri -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/wsf#revisionUri">
+        <rdfs:label xml:lang="en">revision uri</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Link a revision record to the record it revisions.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#Revision"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:ObjectProperty>
     
 
@@ -299,6 +347,22 @@ This is the first authentication/encryption layer of the web service security st
     
 
 
+    <!-- http://purl.org/ontology/wsf#revisionTime -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/wsf#revisionTime">
+        <rdfs:label xml:lang="en">revision time</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">This is the Unix time stamp (which includes microseconds) when the revision got created
+
+The sequence of revisions is determined by the time when they got created. The correct sequence of revisions of a record can be re-created by ordering them by these time stamps.
+
+The value of this property is filled at creation time of the revision.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#Revision"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://purl.org/ontology/wsf#suggestion -->
 
     <owl:DatatypeProperty rdf:about="http://purl.org/ontology/wsf#suggestion">
@@ -457,6 +521,26 @@ Any web service can do one, or many of these 4 basic usage function: (1) create,
     
 
 
+    <!-- http://purl.org/ontology/wsf#Revision -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/wsf#Revision">
+        <rdfs:label xml:lang="en">revision</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A revision or a record indexed in a structWSF dataset. This revision record is used to &apos;save&apos; the state of a record after an update query.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/wsf#RevisionStatus -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/wsf#RevisionStatus">
+        <rdfs:label xml:lang="en">revision status</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">A set of status that can be related to a revision record. This is what tells the users if a revision record is currently published, or what is the status of the revision in a publication workflow.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/ontology/wsf#SpellSuggestion -->
 
     <owl:Class rdf:about="http://purl.org/ontology/wsf#SpellSuggestion">
@@ -521,9 +605,17 @@ Any web service can do one, or many of these 4 basic usage function: (1) create,
     
 
 
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+    
+
+
     <!-- http://xmlns.com/foaf/0.1/Person -->
 
-    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </owl:Class>
     
 
 
@@ -538,11 +630,81 @@ Any web service can do one, or many of these 4 basic usage function: (1) create,
     
 
 
+    <!-- http://purl.org/ontology/wsf#archive -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/ontology/wsf#archive">
+        <rdf:type rdf:resource="http://purl.org/ontology/wsf#RevisionStatus"/>
+        <rdfs:label xml:lang="en">archive</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/wsf#experimental -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/ontology/wsf#experimental">
+        <rdf:type rdf:resource="http://purl.org/ontology/wsf#RevisionStatus"/>
+        <rdfs:label xml:lang="en">experimental</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://purl.org/ontology/wsf#fgiasson -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/ontology/wsf#fgiasson">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://fgiasson.com/</rdfs:seeAlso>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/wsf#harvesting -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/ontology/wsf#harvesting">
+        <rdf:type rdf:resource="http://purl.org/ontology/wsf#RevisionStatus"/>
+        <rdfs:label xml:lang="en">harvesting</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/wsf#pre_release -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/ontology/wsf#pre_release">
+        <rdf:type rdf:resource="http://purl.org/ontology/wsf#RevisionStatus"/>
+        <rdfs:label xml:lang="en">pre-release</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/wsf#published -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/ontology/wsf#published">
+        <rdf:type rdf:resource="http://purl.org/ontology/wsf#RevisionStatus"/>
+        <rdfs:label xml:lang="en">published</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/wsf#staging -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/ontology/wsf#staging">
+        <rdf:type rdf:resource="http://purl.org/ontology/wsf#RevisionStatus"/>
+        <rdfs:label xml:lang="en">staging</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/wsf#unspecified -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/ontology/wsf#unspecified">
+        <rdf:type rdf:resource="http://purl.org/ontology/wsf#RevisionStatus"/>
+        <rdfs:label xml:lang="en">unspecified</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
     </owl:NamedIndividual>
 </rdf:RDF>
