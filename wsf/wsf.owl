@@ -66,19 +66,6 @@
     
 
 
-    <!-- http://purl.org/ontology/wsf#changePerformer -->
-
-    <owl:ObjectProperty rdf:about="http://purl.org/ontology/wsf#changePerformer">
-        <rdfs:label xml:lang="en">performer</rdfs:label>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">Performer of a change state. Who performed an action, on a record, within a dataset, that created a given change state.</rdfs:comment>
-        <ns:term_status>unstable</ns:term_status>
-        <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#ChangeState"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://purl.org/ontology/wsf#datasetAccess -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/ontology/wsf#datasetAccess">
@@ -87,20 +74,6 @@
         <rdfs:comment xml:lang="en">Links an Access instance to a dataset. This dataset belongs to the web services framework. </rdfs:comment>
         <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#Access"/>
         <rdfs:range rdf:resource="http://rdfs.org/ns/void#Dataset"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/ontology/wsf#fromDataset -->
-
-    <owl:ObjectProperty rdf:about="http://purl.org/ontology/wsf#fromDataset">
-        <rdfs:label xml:lang="en">from dataset</rdfs:label>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">Dataset provenance of a record that has been changed and for which has been recorded in a change state.
-
-This property is used by the Tracker web service endpoint.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#ChangeState"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -154,20 +127,6 @@ This property is used by the Tracker web service endpoint.</rdfs:comment>
     
 
 
-    <!-- http://purl.org/ontology/wsf#record -->
-
-    <owl:ObjectProperty rdf:about="http://purl.org/ontology/wsf#record">
-        <rdfs:label xml:lang="en">record</rdfs:label>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">Target record of a changeset. It is a reference to a record for which its state has been recorded in a change state after the performance of an action by a given user.
-
-This property is used by the Tracker web service endpoint.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#ChangeState"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://purl.org/ontology/wsf#webServiceAccess -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/ontology/wsf#webServiceAccess">
@@ -194,35 +153,6 @@ This property is used by the Tracker web service endpoint.</rdfs:comment>
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://purl.org/ontology/wsf#action -->
-
-    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/wsf#action">
-        <rdfs:label xml:lang="en">action</rdfs:label>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">Action that has been performed by a user to change the state of a record.
-
-This property is used by the Tracker web service endpoint.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#ChangeState"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://purl.org/ontology/wsf#changeTime -->
-
-    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/wsf#changeTime">
-        <rdfs:label xml:lang="en">change time</rdfs:label>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">Time at which a change state has been created by a performed action on a given record.
-
-This property is used by the Tracker web service endpoint.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#ChangeState"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-    </owl:DatatypeProperty>
     
 
 
@@ -342,20 +272,6 @@ This is used by the structOntology conStruct module.</rdfs:comment>
     
 
 
-    <!-- http://purl.org/ontology/wsf#previousState -->
-
-    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/wsf#previousState">
-        <rdfs:label xml:lang="en">action</rdfs:label>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">The previous state of a record before the action performed by a user defined by a change state. The previous state is a ZIP compressed RDF+XML representation of the record *prior* the performance of the action.
-
-This property is used by the Tracker web service endpoint.
-</rdfs:comment>
-        <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#ChangeState"/>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://purl.org/ontology/wsf#read -->
 
     <owl:DatatypeProperty rdf:about="http://purl.org/ontology/wsf#read">
@@ -392,6 +308,7 @@ This is the first authentication/encryption layer of the web service security st
         <rdfs:domain rdf:resource="http://purl.org/ontology/wsf#SpellSuggestion"/>
     </owl:DatatypeProperty>
     
+
 
     <!-- http://purl.org/ontology/wsf#update -->
 
@@ -442,12 +359,6 @@ This is the first authentication/encryption layer of the web service security st
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#delete"/>
-                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#update"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
@@ -461,12 +372,6 @@ This is the first authentication/encryption layer of the web service security st
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#read"/>
-                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#create"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
@@ -475,6 +380,18 @@ This is the first authentication/encryption layer of the web service security st
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#webServiceAccess"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/ontology/wsf#WebService"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#delete"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#read"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
@@ -503,29 +420,11 @@ A set of permissions is defined by the four basic operations that can be perform
     
 
 
-    <!-- http://purl.org/ontology/wsf#ChangeState -->
-
-    <owl:Class rdf:about="http://purl.org/ontology/wsf#ChangeState">
-        <rdfs:label xml:lang="en">Change state</rdfs:label>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/ontology/wsf#</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">Records that describe the change that occured between two versions of a same record.
-
-This property is used by the Tracker web service endpoint.</rdfs:comment>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/ontology/wsf#CrudUsage -->
 
     <owl:Class rdf:about="http://purl.org/ontology/wsf#CrudUsage">
         <rdfs:label xml:lang="en">Set of permissions</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#read"/>
-                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#update"/>
@@ -535,6 +434,12 @@ This property is used by the Tracker web service endpoint.</rdfs:comment>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#delete"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/wsf#read"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
