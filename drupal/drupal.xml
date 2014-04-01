@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY iron "http://purl.org/ontology/iron#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY drupal "http://purl.org/ontology/drupal#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.org/ontology/new#"
+     xml:base="http://purl.org/ontology/new"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:drupal="http://purl.org/ontology/drupal#"
+     xmlns:iron="http://purl.org/ontology/iron#">
+    <owl:Ontology rdf:about="http://purl.org/ontology/drupal#">
+        <rdfs:label rdf:datatype="&rdfs;Literal">Drupal Ontology</rdfs:label>
+        <dc:description rdf:datatype="&rdfs;Literal">Ontology used to define Drupal specific concepts</dc:description>
+        <owl:versionIRI rdf:resource="http://purl.org/ontology/drupal/1.0#"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="&dc;description"/>
+    
+
+
+    <!-- http://purl.org/ontology/drupal#fieldType -->
+
+    <owl:AnnotationProperty rdf:about="&drupal;fieldType">
+        <drupal:fieldType xml:lang="en">Specifies the field type to use when synchronizing a property into Drupal.</drupal:fieldType>
+        <rdfs:comment xml:lang="en">field type</rdfs:comment>
+        <rdfs:range rdf:resource="&drupal;FieldType"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/ontology/iron#description -->
+
+    <owl:AnnotationProperty rdf:about="&iron;description"/>
+    
+
+
+    <!-- http://purl.org/ontology/iron#prefLabel -->
+
+    <owl:AnnotationProperty rdf:about="&iron;prefLabel"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ontology/drupal#value -->
+
+    <owl:DatatypeProperty rdf:about="&drupal;value">
+        <iron:description xml:lang="en">Used to reify drupal value information to a RDF triple. 
+
+This property is mostly used to reify field information to OSF FieldStorage values saved in OSF.</iron:description>
+        <iron:prefLabel xml:lang="en">value</iron:prefLabel>
+        <rdfs:domain rdf:resource="&rdf;Statement"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ontology/drupal#FieldType -->
+
+    <owl:Class rdf:about="&drupal;FieldType">
+        <rdfs:label rdf:datatype="&xsd;string">Field Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <iron:description xml:lang="en">Type of a drupal field.</iron:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement -->
+
+    <owl:Class rdf:about="&rdf;Statement"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ontology/drupal#Boolean -->
+
+    <owl:NamedIndividual rdf:about="&drupal;Boolean">
+        <rdf:type rdf:resource="&drupal;FieldType"/>
+        <iron:prefLabel xml:lang="en">Boolean</iron:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/drupal#Date -->
+
+    <owl:NamedIndividual rdf:about="&drupal;Date">
+        <rdf:type rdf:resource="&drupal;FieldType"/>
+        <iron:prefLabel xml:lang="en">Date</iron:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/drupal#DateISO -->
+
+    <owl:NamedIndividual rdf:about="&drupal;DateISO">
+        <rdf:type rdf:resource="&drupal;FieldType"/>
+        <iron:prefLabel xml:lang="en">Date (ISO Standard)</iron:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/drupal#DateUnixTimestamp -->
+
+    <owl:NamedIndividual rdf:about="&drupal;DateUnixTimestamp">
+        <rdf:type rdf:resource="&drupal;FieldType"/>
+        <iron:prefLabel xml:lang="en">Date (Unix Timestamp)</iron:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/drupal#Decimal -->
+
+    <owl:NamedIndividual rdf:about="&drupal;Decimal">
+        <rdf:type rdf:resource="&drupal;FieldType"/>
+        <iron:prefLabel xml:lang="en">Decimal</iron:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/drupal#File -->
+
+    <owl:NamedIndividual rdf:about="&drupal;File">
+        <rdf:type rdf:resource="&drupal;FieldType"/>
+        <iron:prefLabel xml:lang="en">File</iron:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/drupal#Float -->
+
+    <owl:NamedIndividual rdf:about="&drupal;Float">
+        <rdf:type rdf:resource="&drupal;FieldType"/>
+        <iron:prefLabel xml:lang="en">Float</iron:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/drupal#Image -->
+
+    <owl:NamedIndividual rdf:about="&drupal;Image">
+        <rdf:type rdf:resource="&drupal;FieldType"/>
+        <iron:prefLabel xml:lang="en">Image</iron:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/drupal#Integer -->
+
+    <owl:NamedIndividual rdf:about="&drupal;Integer">
+        <rdf:type rdf:resource="&drupal;FieldType"/>
+        <iron:prefLabel xml:lang="en">Integer</iron:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/drupal#Link -->
+
+    <owl:NamedIndividual rdf:about="&drupal;Link">
+        <rdf:type rdf:resource="&drupal;FieldType"/>
+        <iron:prefLabel xml:lang="en">Link</iron:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/drupal#ListFloat -->
+
+    <owl:NamedIndividual rdf:about="&drupal;ListFloat">
+        <rdf:type rdf:resource="&drupal;FieldType"/>
+        <iron:prefLabel xml:lang="en">List (Float)</iron:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/drupal#ListInteger -->
+
+    <owl:NamedIndividual rdf:about="&drupal;ListInteger">
+        <rdf:type rdf:resource="&drupal;FieldType"/>
+        <iron:prefLabel xml:lang="en">List (Integer)</iron:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/drupal#ListText -->
+
+    <owl:NamedIndividual rdf:about="&drupal;ListText">
+        <rdf:type rdf:resource="&drupal;FieldType"/>
+        <iron:prefLabel xml:lang="en">List (Text)</iron:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/drupal#LongText -->
+
+    <owl:NamedIndividual rdf:about="&drupal;LongText">
+        <rdf:type rdf:resource="&drupal;FieldType"/>
+        <iron:prefLabel xml:lang="en">Long text</iron:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/drupal#LongTextAndSummary -->
+
+    <owl:NamedIndividual rdf:about="&drupal;LongTextAndSummary">
+        <rdf:type rdf:resource="&drupal;FieldType"/>
+        <iron:prefLabel xml:lang="en">Long text and summary</iron:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/drupal#Text -->
+
+    <owl:NamedIndividual rdf:about="&drupal;Text">
+        <rdf:type rdf:resource="&drupal;FieldType"/>
+        <iron:prefLabel xml:lang="en">Text</iron:prefLabel>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
