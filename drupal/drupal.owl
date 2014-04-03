@@ -198,6 +198,15 @@ This property is mostly used to reify field information to OSF FieldStorage valu
     
 
 
+    <!-- http://purl.org/ontology/drupal#Geolocation -->
+
+    <owl:NamedIndividual rdf:about="&drupal;Geolocation">
+        <rdf:type rdf:resource="&drupal;FieldType"/>
+        <iron:prefLabel xml:lang="en">Geolocation</iron:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://purl.org/ontology/drupal#Image -->
 
     <owl:NamedIndividual rdf:about="&drupal;Image">
